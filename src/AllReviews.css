@@ -1,0 +1,14 @@
+.cards {
+    /* padding-left: 100px; */
+    display: flex;
+    /* flex-flow: row wrap; */
+    flex-direction: column;
+    /* align-items: flex-end; */
+    /* padding: auto;
+    margin: auto; */
+    justify-content: space-evenly;
+    align-items: center;
+    max-width: max-content;
+    /* align-content: baseline; */
+    background-color: #24222C;
+}
