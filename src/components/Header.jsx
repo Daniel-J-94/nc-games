@@ -16,16 +16,6 @@ function Header() {
             <img src="https://static.wixstatic.com/media/b10a22_5ba4c446b0634e148c2300db046621cb~mv2.png/v1/fill/w_78,h_78,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/games%20(2).png" />
             <Switch defaultChecked />
         </div>
-        <div>
-            <form className="logIn">
-            <h1>log in:</h1>
-            <TextField id="outlined-basic" label="Username" variant="outlined" />
-            <TextField id="outlined-basic" label="Password" variant="outlined" />
-            <br></br>
-            <button type="submit">SUBMIT</button>
-            <br></br>
-        </form>
-        </div>
         </div>
         </section>
         
