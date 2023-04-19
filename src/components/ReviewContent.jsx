@@ -71,9 +71,9 @@ console.log(getOwnerInitials)
         alt="revimg"
       />
       <CardContent>
-        <Typography variant="body2" color="text.secondary">
-         Reviewed: {created_at}
-        </Typography>
+          <Typography paragraph>
+          <Link to={`/reviews/${review_id}`}>read review!</Link>
+          </Typography>
       </CardContent>
       <CardActions disableSpacing>
         <ExpandMore
@@ -87,9 +87,9 @@ console.log(getOwnerInitials)
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph>
-          <Link to={`/reviews/${review_id}`}>see more</Link>
-          </Typography>
+        <Typography variant="body2" color="text.secondary">
+         Reviewed: {created_at}
+        </Typography>
           <Typography paragraph>
             Game Designer: {designer}
           </Typography>

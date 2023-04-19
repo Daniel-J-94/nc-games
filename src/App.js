@@ -16,9 +16,17 @@ function App() {
     setIsLightTheme(!isLightTheme);
   };
 
+  function themeoptions(lightoption, darkoption) {
+    if (isLightTheme) {
+      return lightoption;
+    } else {
+      return darkoption;
+    }
+  }
+
   return (
     <div className="App">
-      <div className="apphead">
+      <div className={themeoptions("apphead", "appheadDark")}>
         <Header
           handleThemeClick={handleThemeClick}
           isLightTheme={isLightTheme}
@@ -26,7 +34,10 @@ function App() {
       </div>
       <Routes>
         <Route path="/login" element={<LogIn />} />
-        <Route path="/" element={<AllReviews user={user} />} />
+        <Route
+          path="/"
+          element={<AllReviews user={user} isLightTheme={isLightTheme} />}
+        />
         <Route path="/reviews/:review_id" element={<SingleReviewById />} />
       </Routes>
     </div>

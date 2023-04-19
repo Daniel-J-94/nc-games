@@ -9,5 +9,19 @@
     align-items: center;
     /* max-width: max-content; */
     /* align-content: baseline; */
+    background-color: #837990;
+}
+
+.cardsDark {
+    display: flex;
+    flex-flow: row wrap;
+    flex-direction: row;
+    /* align-items: flex-end; */
+    /* padding: auto;
+    margin: auto; */
+    justify-content: space-around;
+    align-items: center;
+    /* max-width: max-content; */
+    /* align-content: baseline; */
     background-color: #24222C;
 }

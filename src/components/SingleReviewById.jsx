@@ -35,12 +35,10 @@ function SingleReviewById({user, owner}) {
     const [newReviewById, setNewReviewById] = useState(null);
     const [loading, setLoading] = useState(false);
     const { review_id } = useParams();
-    console.log("rev:", review_id)
   
     useEffect(() => {
       setLoading(true)
       fetchReviewById(review_id).then((review) => {
-        console.log("revs", review)
         setNewReviewById(review);
         setLoading(false)
       });
@@ -76,6 +74,9 @@ function SingleReviewById({user, owner}) {
               alt="revimg"
             />
             <CardContent>
+                <Typography paragraph>
+                <Link to={`/`}>Back to all reviews</Link>
+                </Typography>
               <Typography variant="body2">
                {newReviewById.review_body}
               </Typography>
@@ -92,9 +93,6 @@ function SingleReviewById({user, owner}) {
             </CardActions>
             <Collapse in={expanded} timeout="auto" unmountOnExit>
               <CardContent>
-                <Typography paragraph>
-                <Link to={`/`}>Back to all reviews</Link>
-                </Typography>
                 <Typography paragraph>
                   this is where the comments section will be
                 </Typography>
