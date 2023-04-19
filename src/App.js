@@ -39,10 +39,13 @@ function App() {
           path="/"
           element={<AllReviews user={user} isLightTheme={isLightTheme} />}
         />
-        <Route path="/reviews/:review_id" element={<SingleReviewById />} />
+        <Route
+          path="/reviews/:review_id"
+          element={<SingleReviewById isLightTheme={isLightTheme} />}
+        />
         <Route
           path="/reviews/:review_id/comments"
-          element={<CommentsByReviewId />}
+          element={<CommentsByReviewId isLightTheme={isLightTheme} />}
         />
       </Routes>
     </div>

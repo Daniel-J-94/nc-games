@@ -28,29 +28,29 @@ transition: theme.transitions.create("transform", {
 duration: theme.transitions.duration.shortest
 })
 }));
-function ReviewContent({
-  review_id,
-  title,
-  review_img_url,
-  category,
-  created_at,
-  votes,
-  designer,
-  owner
-}) {
+function ReviewContent({isLightTheme, review}) {
     const [expanded, setExpanded] = React.useState(false);
     const handleExpandClick = () => {
         setExpanded(!expanded);
       };
 
-const getOwnerInitials = owner[0]
+const getOwnerInitials = review.owner[0]
 console.log(getOwnerInitials)
 
+
+function themeoptions(lightoption, darkoption) {
+  console.log("themehere", isLightTheme)
+  if (isLightTheme) {
+    return lightoption
+  } else {return darkoption} 
+}
+const cardylightbg = "#CEA16F"
+const cardydarkbg = "#837990"
 
   return (
     <div className="singlecard" xs={3}>
     {/* <> */}
-    <Card style={{backgroundColor: "#CEA16F"}} sx={{ maxWidth: 345 }} key={title}>
+    <Card  sx={{ maxWidth: 345, backgroundColor: themeoptions(cardylightbg, cardydarkbg) }} key={review.title}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: "#FAF8FA", color: "#24222C" }} aria-label="review">
@@ -62,17 +62,17 @@ console.log(getOwnerInitials)
             <MoreVertIcon />
           </IconButton>
         }
-        title={title}
+        title={review.title}
       />
       <CardMedia
         component="img"
         height="194"
-        image={review_img_url}
+        image={review.review_img_url}
         alt="revimg"
       />
       <CardContent>
           <Typography paragraph>
-          <Link to={`/reviews/${review_id}`}>read review!</Link>
+          <Link to={`/reviews/${review.review_id}`}>read review!</Link>
           </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -88,13 +88,13 @@ console.log(getOwnerInitials)
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
         <Typography variant="body2" color="text.secondary">
-         Reviewed: {created_at}
+         Reviewed: {review.created_at}
         </Typography>
           <Typography paragraph>
-            Game Designer: {designer}
+            Game Designer: {review.designer}
           </Typography>
           <Typography>
-            Game Category: {category}
+            Game Category: {review.category}
           </Typography>
         </CardContent>
       </Collapse>

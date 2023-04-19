@@ -8,12 +8,17 @@ import * as React from "react";
 
 
 
-
-function CommentsByReviewId({user, id}) {
-    const [newCommentsById, setNewCommentsById] = useState(null);
-    const [loading, setLoading] = useState(false);
-    const { review_id } = useParams();
+function CommentsByReviewId({isLightTheme, user, id}) {
+  const [newCommentsById, setNewCommentsById] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const { review_id } = useParams();
   
+  function themeoptions(lightoption, darkoption) {
+    console.log("themehere", isLightTheme)
+    if (isLightTheme) {
+      return lightoption
+    } else {return darkoption} 
+  }
     useEffect(() => {
       setLoading(true)
       fetchCommentsByReviewId(review_id).then((  comments  ) => {
@@ -24,7 +29,7 @@ function CommentsByReviewId({user, id}) {
       });
     }, []);      
           return (
-              <div className="reviewdisplay">
+              <div className={themeoptions("reviewdisplay", "reviewdisplaydark")}>
       {loading && 
       <Stack spacing={1}>    
       <Skeleton variant="rectangular" width={300} height={50} />
@@ -36,17 +41,21 @@ function CommentsByReviewId({user, id}) {
             {!loading && newCommentsById !== null && 
               newCommentsById.comments.map((comment) => {
 return (
-              <div className="Comments">  
-                <p className="headings" >Author:</p>
-                {comment.author}
+              <div className="Comments" >  
+              <p className={themeoptions("headings", "headingsdark")}>Author:</p>
+              <br></br>
+                <p className={themeoptions("reviewdisplay", "reviewdisplaydark")} >{comment.author}</p>               
                 <br></br>
                 <br></br>
-                <p className="headings" >Comment:</p>
-                {comment.body}
+                <p className={themeoptions("headings", "headingsdark")}>Comment:</p>
+              <br></br>
+                <p className={themeoptions("reviewdisplay", "reviewdisplaydark")} >{comment.body}</p>
                 <br></br>
                 <br></br>
-                <p className="headings" >Votes:</p>
-                {comment.votes}
+                <p className={themeoptions("headings", "headingsdark")}>Votes</p>
+              <br></br>
+                <p className={themeoptions("reviewdisplay", "reviewdisplaydark")} >{comment.votes}</p>
+                
                   
                   </div>) })}
                 </div> ) }

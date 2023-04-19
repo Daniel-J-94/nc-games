@@ -31,7 +31,7 @@ const ExpandMore = styled((props) => {
     }));
 
 
-function SingleReviewById({user, owner}) {
+function SingleReviewById({isLightTheme, user, owner}) {
     const [newReviewById, setNewReviewById] = useState(null);
     const [loading, setLoading] = useState(false);
     const { review_id } = useParams();
@@ -45,8 +45,19 @@ function SingleReviewById({user, owner}) {
         const handleExpandClick = () => {
             setExpanded(!expanded);
           };        
+
+          function themeoptions(lightoption, darkoption) {
+            console.log("themehere", isLightTheme)
+            if (isLightTheme) {
+              return lightoption
+            } else {return darkoption} 
+          }
+
+          const cardylightbg = "#CEA16F"
+const cardydarkbg = "#837990"
+
           return (             
-              <div className="reviewdisplay">
+              <div className={themeoptions("reviewdis", "reviewdisdark")}>
       {loading && 
       <Stack spacing={1}>    
       <Skeleton variant="circular" width={40} height={40} />
@@ -55,7 +66,7 @@ function SingleReviewById({user, owner}) {
     </Stack>}
             {!loading && newReviewById !== null &&
             <div> <>
-            <Card className="RevCard" style={{backgroundColor: "#CEA16F"}} sx={{ maxWidth: 345 }} key={newReviewById.title}>
+            <Card className="RevCard"  sx={{ maxWidth: 345, backgroundColor: themeoptions(cardylightbg, cardydarkbg)  }} key={newReviewById.title}>
             <CardHeader
               title={newReviewById.title}
             />
@@ -88,7 +99,7 @@ function SingleReviewById({user, owner}) {
             </CardActions>
             <Collapse in={expanded} timeout="auto" unmountOnExit>
               <CardContent>              
-                <CommentsByReviewId />     
+                <CommentsByReviewId isLightTheme={isLightTheme}/>     
               </CardContent>
             </Collapse>
           </Card></>

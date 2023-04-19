@@ -37,7 +37,7 @@ function AllReviews({user, isLightTheme}) {
       <Skeleton variant="rounded" width={210} height={60} />
     </Stack>}
             {!loading && newReviews.map((review) => {
-              return <ReviewContent key={review.item_id} {...review} />;
+              return <ReviewContent key={review.item_id} isLightTheme={isLightTheme} review={review} />;
             })}
       </div>
       

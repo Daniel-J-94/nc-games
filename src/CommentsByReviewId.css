@@ -1,13 +1,29 @@
+.reviewdisplay{
+    background-color: #CEA16F;
+    color: #24222C
+}
+
+.reviewdisplaydark{
+    background-color: #24222C;
+    color: #FAF8FA;
+}
+
+
+
 .Comments{
-    background-color: #FAF8FA;
     min-width: 350px;
     border-radius: 30px;
     margin: 30px;
 }
 
 .headings {
-background-color: #837990;
 border-radius: 30px;
-color: #FAF8FA;
+color: #24222C;
+background-color: #837990;
 }
+.headingsdark {
+    border-radius: 30px;
+    color: #24222C;
+    background-color: #CEA16F;
+    }
 
