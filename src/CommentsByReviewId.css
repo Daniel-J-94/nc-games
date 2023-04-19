@@ -1,5 +1,5 @@
 .reviewdisplay{
-    background-color: #CEA16F;
+    background-color: #837990;
     color: #24222C;
     border-radius: 30px;
 }
@@ -20,12 +20,13 @@
 
 .headings {
 border-radius: 30px;
-color: #24222C;
-background-color: #837990;
+color: #FAF8FA;
+background-color: #24222C;
 }
 .headingsdark {
     border-radius: 30px;
     color: #24222C;
     background-color: #CEA16F;
     }
+
 
