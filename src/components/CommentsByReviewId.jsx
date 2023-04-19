@@ -42,6 +42,7 @@ function CommentsByReviewId({isLightTheme, user, id}) {
               newCommentsById.comments.map((comment) => {
 return (
               <div className="Comments" >  
+              <br></br>
               <p className={themeoptions("headings", "headingsdark")}>Author:</p>
              
                 <p className={themeoptions("reviewdisplay", "reviewdisplaydark")} >{comment.author}</p>               

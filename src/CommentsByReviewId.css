@@ -1,11 +1,13 @@
 .reviewdisplay{
     background-color: #CEA16F;
-    color: #24222C
+    color: #24222C;
+    border-radius: 30px;
 }
 
 .reviewdisplaydark{
     background-color: #24222C;
     color: #FAF8FA;
+    border-radius: 30px;
 }
 
 

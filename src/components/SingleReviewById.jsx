@@ -70,6 +70,10 @@ const cardydarkbg = "#837990"
             <CardHeader
               title={newReviewById.title}
             />
+            <Typography variant="body1">
+               By: {newReviewById.owner}
+              </Typography>
+              <br></br>
             <CardMedia
               component="img"
               height="194"
