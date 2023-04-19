@@ -12,6 +12,7 @@ import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import { red } from "@mui/material/colors";
+import { Link } from "react-router-dom";
 
 
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -28,9 +29,9 @@ duration: theme.transitions.duration.shortest
 })
 }));
 function ReviewContent({
+  review_id,
   title,
   review_img_url,
-  review_body,
   category,
   created_at,
   votes,
@@ -70,9 +71,9 @@ console.log(getOwnerInitials)
         alt="revimg"
       />
       <CardContent>
-        <Typography variant="body2" color="text.secondary">
-         Reviewed: {created_at}
-        </Typography>
+          <Typography paragraph>
+          <Link to={`/reviews/${review_id}`}>read review!</Link>
+          </Typography>
       </CardContent>
       <CardActions disableSpacing>
         <ExpandMore
@@ -86,9 +87,9 @@ console.log(getOwnerInitials)
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph>
-            click here to read this review!
-          </Typography>
+        <Typography variant="body2" color="text.secondary">
+         Reviewed: {created_at}
+        </Typography>
           <Typography paragraph>
             Game Designer: {designer}
           </Typography>

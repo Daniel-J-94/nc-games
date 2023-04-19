@@ -5,7 +5,7 @@ import ReviewContent from "./ReviewContent";
 import { Skeleton, Stack } from "@mui/material";
 
 
-function AllReviews({user}) {
+function AllReviews({user, isLightTheme}) {
     const [newReviews, setNewReviews] = useState([]);
     const [loading, setLoading] = useState(false);
     console.log("user:", user)
@@ -18,9 +18,17 @@ function AllReviews({user}) {
       });
       
     }, []);
+
+    function themeoptions(lightoption, darkoption) {
+      console.log("theme", isLightTheme)
+      if (isLightTheme) {
+        return lightoption
+      } else {return darkoption} 
+    }
+
     return (
       
-      <div className="cards">
+      <div className={themeoptions("cards", "cardsDark")}>
       {loading && 
       <Stack spacing={1}>    
       {/* For other variants, adjust the size with `width` and `height` */}

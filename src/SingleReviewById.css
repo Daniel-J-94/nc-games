@@ -1,0 +1,18 @@
+.reviewdisplay {
+    display: flex;
+    flex-flow: row wrap;
+    flex-direction: row;
+    /* align-items: flex-end; */
+    /* padding: auto;
+    margin: auto; */
+    justify-content: space-around;
+    align-items: center;
+   /* min-width: 1000px; */
+    /* align-content: baseline; */
+    background-color: #CEA16F;
+}
+
+.RevCard {
+    min-width:min-content;
+    /* display: flex; */
+}
