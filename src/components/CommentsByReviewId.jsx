@@ -43,17 +43,17 @@ function CommentsByReviewId({isLightTheme, user, id}) {
 return (
               <div className="Comments" >  
               <p className={themeoptions("headings", "headingsdark")}>Author:</p>
-              <br></br>
+             
                 <p className={themeoptions("reviewdisplay", "reviewdisplaydark")} >{comment.author}</p>               
                 <br></br>
-                <br></br>
+               
                 <p className={themeoptions("headings", "headingsdark")}>Comment:</p>
-              <br></br>
+             
                 <p className={themeoptions("reviewdisplay", "reviewdisplaydark")} >{comment.body}</p>
                 <br></br>
-                <br></br>
+              
                 <p className={themeoptions("headings", "headingsdark")}>Votes</p>
-              <br></br>
+           
                 <p className={themeoptions("reviewdisplay", "reviewdisplaydark")} >{comment.votes}</p>
                 
                   

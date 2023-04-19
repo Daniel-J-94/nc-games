@@ -11,7 +11,7 @@
 
 
 .Comments{
-    min-width: 350px;
+    min-width: fit-content;
     border-radius: 30px;
     margin: 30px;
 }

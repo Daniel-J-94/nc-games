@@ -13,6 +13,7 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import { red } from "@mui/material/colors";
 import { Link } from "react-router-dom";
+import Button from "@mui/material/Button"
 
 
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -50,18 +51,14 @@ const cardydarkbg = "#837990"
   return (
     <div className="singlecard" xs={3}>
     {/* <> */}
-    <Card  sx={{ maxWidth: 345, backgroundColor: themeoptions(cardylightbg, cardydarkbg) }} key={review.title}>
+    <Card  sx={{ minWidth: 330, maxWidth: 330, backgroundColor: themeoptions(cardylightbg, cardydarkbg) }} key={review.title}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: "#FAF8FA", color: "#24222C" }} aria-label="review">
             {getOwnerInitials}
           </Avatar>
         }
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
+        
         title={review.title}
       />
       <CardMedia
@@ -82,6 +79,9 @@ const cardydarkbg = "#837990"
           aria-expanded={expanded}
           aria-label="show more"
         >
+          <Typography>
+            More Info:
+          </Typography>
           <ExpandMoreIcon />
         </ExpandMore>
       </CardActions>

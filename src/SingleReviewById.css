@@ -4,7 +4,7 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    background-color: #CEA16F;
+    background-color: #837990;
 }
 
 .reviewdisdark {
@@ -17,6 +17,6 @@
 }
 
 .RevCard {
-    min-width:min-content;
+    min-width:fit-content;
     /* display: flex; */
 }
