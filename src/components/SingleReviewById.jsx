@@ -80,8 +80,12 @@ const cardydarkbg = "#837990"
                 <Typography paragraph>
                 <Link to={`/`}>Back to all reviews</Link>
                 </Typography>
-              <Typography variant="body2">
+              <Typography variant="body1">
                {newReviewById.review_body}
+              </Typography>
+              <br></br>
+              <Typography variant="body2">
+               Votes: {newReviewById.votes}
               </Typography>
             </CardContent>
             <CardActions disableSpacing>
