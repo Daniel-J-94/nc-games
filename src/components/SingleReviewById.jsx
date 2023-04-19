@@ -1,7 +1,7 @@
 import "../SingleReviewById.css"
 import { useEffect, useState } from "react";
 import { fetchReviewById } from "../api";
-import { Skeleton, Stack } from "@mui/material";
+import { Button, Skeleton, Stack } from "@mui/material";
 import { useParams } from "react-router-dom";
 import * as React from "react";
 import { styled } from "@mui/material/styles";
@@ -17,6 +17,8 @@ import { Link } from "react-router-dom";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import CommentsByReviewId from "./CommentsByReviewId";
+import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
+import ThumbDownOffAltIcon from '@mui/icons-material/ThumbDownOffAlt';
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -91,6 +93,26 @@ const cardydarkbg = "#837990"
               <Typography variant="body2">
                Votes: {newReviewById.votes}
               </Typography>
+              
+              <Button
+              varient="outlined"
+              onClick={() => console.log("you voted!")}
+              sx={{color: "#24222C"}}
+              type="submit"
+              endIcon={<ThumbUpOffAltIcon />}
+              >
+                Vote
+              </Button>
+              <br></br>
+              <Button
+              onClick={() => console.log("you retracted your vote!")}
+              sx={{color: "#24222C"}}
+              type="submit"
+              varient="contained"
+              endIcon={<ThumbDownOffAltIcon />}
+              >
+                Un-Vote
+              </Button>
             </CardContent>
             <CardActions disableSpacing>
               <ExpandMore

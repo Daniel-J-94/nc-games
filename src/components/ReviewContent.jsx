@@ -69,7 +69,8 @@ const cardydarkbg = "#837990"
       />
       <CardContent>
           <Typography paragraph>
-          <Link to={`/reviews/${review.review_id}`}>read review!</Link>
+          <Link to={`/reviews/${review.review_id}`}>
+            <h3>read review!</h3></Link>
           </Typography>
       </CardContent>
       <CardActions disableSpacing>
