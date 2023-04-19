@@ -11,13 +11,12 @@ import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import Collapse from "@mui/material/Collapse";
-import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import { red } from "@mui/material/colors";
 import { Link } from "react-router-dom";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
+import CommentsByReviewId from "./CommentsByReviewId";
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -25,6 +24,7 @@ const ExpandMore = styled((props) => {
     })(({ theme, expand }) => ({
     transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
     marginLeft: "auto",
+    marginRight: "auto",
     transition: theme.transitions.create("transform", {
     duration: theme.transitions.duration.shortest
     })
@@ -35,25 +35,17 @@ function SingleReviewById({user, owner}) {
     const [newReviewById, setNewReviewById] = useState(null);
     const [loading, setLoading] = useState(false);
     const { review_id } = useParams();
-  
     useEffect(() => {
       setLoading(true)
       fetchReviewById(review_id).then((review) => {
         setNewReviewById(review);
         setLoading(false)
-      });
-      
-    }, []);
-
-    {
+      });},[]);{
         const [expanded, setExpanded] = React.useState(false);
         const handleExpandClick = () => {
             setExpanded(!expanded);
-          };
-    
-          
-          return (
-              
+          };        
+          return (             
               <div className="reviewdisplay">
       {loading && 
       <Stack spacing={1}>    
@@ -88,17 +80,15 @@ function SingleReviewById({user, owner}) {
                 aria-expanded={expanded}
                 aria-label="show more"
               >
+                 <Typography variant="body2">
+               comments:
+              </Typography>
                 <ExpandMoreIcon />
               </ExpandMore>
             </CardActions>
             <Collapse in={expanded} timeout="auto" unmountOnExit>
-              <CardContent>
-                <Typography paragraph>
-                  this is where the comments section will be
-                </Typography>
-                <Typography>
-                  user will be able to post and delete comments from here
-                </Typography>
+              <CardContent>              
+                <CommentsByReviewId />     
               </CardContent>
             </Collapse>
           </Card></>

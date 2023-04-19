@@ -17,3 +17,13 @@ export const fetchReviewById = (review_id) => {
       return response.data;
     });
 };
+
+export const fetchCommentsByReviewId = (review_id) => {
+  return axios
+    .get(
+      `https://back-end-portfolio-project-dj.onrender.com/api/reviews/${review_id}/comments`
+    )
+    .then((response) => {
+      return response.data;
+    });
+};
