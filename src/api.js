@@ -50,3 +50,14 @@ export const PostCommentOnReview = (id, username, newCommentData) => {
       return response.data;
     });
 };
+
+export const DeleteCommentOnReview = (comment_id) => {
+  console.log("bang!", comment_id);
+  return axios
+    .delete(
+      `https://back-end-portfolio-project-dj.onrender.com/api/comments/${comment_id}`
+    )
+    .then((response) => {
+      return response.data;
+    });
+};
