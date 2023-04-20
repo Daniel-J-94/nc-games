@@ -6,7 +6,8 @@ import AllReviews from "./components/AllReviews";
 import LogIn from "./components/Login";
 import SingleReviewById from "./components/SingleReviewById";
 import CommentsByReviewId from "./components/CommentsByReviewId";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function App() {
   const user = "daniel";
 
@@ -48,6 +49,9 @@ function App() {
           element={<CommentsByReviewId isLightTheme={isLightTheme} />}
         />
       </Routes>
+      <div>
+        <ToastContainer />
+      </div>
     </div>
   );
 }

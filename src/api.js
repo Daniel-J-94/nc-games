@@ -27,3 +27,16 @@ export const fetchCommentsByReviewId = (review_id) => {
       return response.data;
     });
 };
+
+export const VoteReviewById = (id, voteInc) => {
+  const patchBody = { inc_votes: voteInc };
+  return axios
+    .patch(
+      `https://back-end-portfolio-project-dj.onrender.com/api/reviews/${id}`,
+      patchBody
+    )
+    .then((response) => {
+      console.log("here mate!", response);
+      return response.data;
+    });
+};
