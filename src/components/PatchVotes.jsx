@@ -18,7 +18,7 @@ const {review_id} = useParams();
     onClick={() => {
         setClickCount(1)
         setIsClicked(true)
-        VoteReviewById(review_id, clickCount)
+        VoteReviewById(review_id, 1)
         .catch(() => {setClickCount(0);
         setErrorToast(true);
         toast.error(`Cannot vote offline!`,  { position: toast.POSITION.TOP_RIGHT });
