@@ -19,6 +19,7 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import CommentsByReviewId from "./CommentsByReviewId";
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import ThumbDownOffAltIcon from '@mui/icons-material/ThumbDownOffAlt';
+import Avatar from "@mui/material/Avatar";
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -33,13 +34,14 @@ const ExpandMore = styled((props) => {
     }));
 
 
-function SingleReviewById({isLightTheme, user, owner}) {
+function SingleReviewById({isLightTheme, user}) {
     const [newReviewById, setNewReviewById] = useState(null);
     const [loading, setLoading] = useState(false);
     const { review_id } = useParams();
     useEffect(() => {
       setLoading(true)
       fetchReviewById(review_id).then((review) => {
+        console.log("hereee", review)
         setNewReviewById(review);
         setLoading(false)
       });},[]);{
@@ -54,7 +56,8 @@ function SingleReviewById({isLightTheme, user, owner}) {
               return lightoption
             } else {return darkoption} 
           }
-
+          const getOwnerInitials = (newReviewById !== null) ? newReviewById.owner : "";
+          console.log("here", getOwnerInitials)
           const cardylightbg = "#CEA16F"
 const cardydarkbg = "#837990"
 
@@ -69,7 +72,13 @@ const cardydarkbg = "#837990"
             {!loading && newReviewById !== null &&
             <div> <>
             <Card className="RevCard"  sx={{ maxWidth: 345, backgroundColor: themeoptions(cardylightbg, cardydarkbg)  }} key={newReviewById.title}>
+              
             <CardHeader
+            avatar={
+              <Avatar sx={{ bgcolor: "#FAF8FA", color: "#24222C" }} aria-label="review">
+                {getOwnerInitials[0]}
+              </Avatar>
+            }
               title={newReviewById.title}
             />
             <Typography variant="body1">
