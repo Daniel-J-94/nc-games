@@ -41,7 +41,6 @@ function SingleReviewById({isLightTheme, user}) {
     useEffect(() => {
       setLoading(true)
       fetchReviewById(review_id).then((review) => {
-        console.log("hereee", review)
         setNewReviewById(review);
         setLoading(false)
       });},[]);{
@@ -51,13 +50,11 @@ function SingleReviewById({isLightTheme, user}) {
           };        
 
           function themeoptions(lightoption, darkoption) {
-            console.log("themehere", isLightTheme)
             if (isLightTheme) {
               return lightoption
             } else {return darkoption} 
           }
           const getOwnerInitials = (newReviewById !== null) ? newReviewById.owner : "";
-          console.log("here", getOwnerInitials)
           const cardylightbg = "#CEA16F"
 const cardydarkbg = "#837990"
 
