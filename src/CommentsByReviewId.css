@@ -1,7 +1,7 @@
 .reviewdisplay{
     background-color: #837990;
     color: #24222C;
-    border-radius: 0px;
+    border-radius: 25px;
     border: 1.5px solid #24222C;
     border-left: 0px solid #CEA16F;
     border-right: 0px solid #CEA16F;
@@ -10,7 +10,7 @@
 .reviewdisplaydark{
     background-color: #24222C;
     color: #FAF8FA;
-    border-radius: 0px;
+    border-radius: 25px;
     border: 1.5px solid #CEA16F;
     border-left: 0px solid #CEA16F;
     border-right: 0px solid #CEA16F;
@@ -29,7 +29,7 @@
 
 .headings {
 border-radius: 0px;
-background-color: #FAF8FA;
+background-color: #CEA16F;;
 color: #24222C;
 border: none;
 }

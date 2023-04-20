@@ -26,13 +26,12 @@ function CommentsByReviewId({isLightTheme, user, id}) {
   useEffect(() => {
     setLoading(true)
     fetchCommentsByReviewId(review_id).then((  comments  ) => {
-      console.log("comments in useeffect", comments)
       setNewCommentsById(comments);
-      console.log("commm", newCommentsById)
       setLoading(false)
     });
-    
-    }, []);      
+    }, []); 
+    const darkthumbs = "#CEA16F"
+    const lightthumbs = "#24222C"      
           return (
               <div className={themeoptions("reviewdisplay", "reviewdisplaydark")}>
       {loading && 
@@ -57,6 +56,25 @@ return (
                 
            
                 <p className={themeoptions("reviewdisplay", "reviewdisplaydark")} >{comment.votes}</p>
+                <Button
+              varient="outlined"
+              onClick={() => console.log("you voted!")}
+              sx={{color: themeoptions(lightthumbs, darkthumbs)}}
+              type="submit"
+              endIcon={<ThumbUpOffAltIcon />}
+              >
+                Vote
+              </Button>
+              <br></br>
+              <Button
+              onClick={() => console.log("you retracted your vote!")}
+              sx={{color: themeoptions(lightthumbs, darkthumbs)}}
+              type="submit"
+              varient="contained"
+              endIcon={<ThumbDownOffAltIcon />}
+              >
+                Un-Vote
+              </Button>
                 <br></br>
                 <br></br>
                 

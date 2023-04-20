@@ -47,6 +47,7 @@ function themeoptions(lightoption, darkoption) {
 }
 const cardylightbg = "#CEA16F"
 const cardydarkbg = "#837990"
+const dateOfReview = new Date(review.created_at).toDateString()
 
   return (
     <div className="singlecard" xs={3}>
@@ -89,8 +90,9 @@ const cardydarkbg = "#837990"
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
         <Typography variant="body2" color="text.secondary">
-         Reviewed: {review.created_at}
+         Reviewed: {dateOfReview}
         </Typography>
+        <br></br>
           <Typography paragraph>
             Game Designer: {review.designer}
           </Typography>
