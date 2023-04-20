@@ -9,7 +9,7 @@ import CommentsByReviewId from "./components/CommentsByReviewId";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 function App() {
-  const user = "daniel";
+  const user = "grumpy19";
 
   const [isLightTheme, setIsLightTheme] = useState(true);
   const handleThemeClick = () => {
@@ -42,7 +42,7 @@ function App() {
         />
         <Route
           path="/reviews/:review_id"
-          element={<SingleReviewById isLightTheme={isLightTheme} />}
+          element={<SingleReviewById isLightTheme={isLightTheme} user={user} />}
         />
         <Route
           path="/reviews/:review_id/comments"

@@ -36,7 +36,17 @@ export const VoteReviewById = (id, voteInc) => {
       patchBody
     )
     .then((response) => {
-      console.log("here mate!", response);
+      return response.data;
+    });
+};
+export const PostCommentOnReview = (id, username, newCommentData) => {
+  const postBody = { username: username, body: newCommentData };
+  return axios
+    .post(
+      `https://back-end-portfolio-project-dj.onrender.com/api/reviews/${id}/comments`,
+      postBody
+    )
+    .then((response) => {
       return response.data;
     });
 };

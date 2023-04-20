@@ -21,6 +21,7 @@ import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import ThumbDownOffAltIcon from '@mui/icons-material/ThumbDownOffAlt';
 import Avatar from "@mui/material/Avatar";
 import PatchVotesByReviewId from "./PatchVotes";
+import PostComment from "./PostComment";
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -35,7 +36,8 @@ const ExpandMore = styled((props) => {
     }));
 
 
-function SingleReviewById({isLightTheme, user}) {
+function SingleReviewById({isLightTheme, user})
+{
 const [clickCount, setClickCount] = useState(0)
 
     const [newReviewById, setNewReviewById] = useState(null);
@@ -102,26 +104,8 @@ const cardydarkbg = "#837990"
               <Typography variant="body2">
                Votes: {newReviewById.votes + clickCount}
               </Typography>
-              <PatchVotesByReviewId setClickCount={setClickCount}/>
-              {/* <Button
-              varient="outlined"
-              onClick={() => console.log("you voted!")}
-              sx={{color: "#24222C"}}
-              type="submit"
-              endIcon={<ThumbUpOffAltIcon />}
-              >
-                Vote
-              </Button>
-              <br></br>
-              <Button
-              onClick={() => console.log("you retracted your vote!")}
-              sx={{color: "#24222C"}}
-              type="submit"
-              varient="contained"
-              endIcon={<ThumbDownOffAltIcon />}
-              >
-                Un-Vote
-              </Button> */}
+              <PatchVotesByReviewId clickCount={clickCount} setClickCount={setClickCount}/>
+              <PostComment reviewid={review_id} user={user} setClickCount={setClickCount}/>
             </CardContent>
             <CardActions disableSpacing>
               <ExpandMore
