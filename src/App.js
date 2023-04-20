@@ -34,6 +34,7 @@ function App() {
           isLightTheme={isLightTheme}
         />
       </div>
+
       <Routes>
         <Route path="/login" element={<LogIn />} />
         <Route

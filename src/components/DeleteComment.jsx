@@ -9,13 +9,13 @@ function DeleteComment({isLightTheme, comment_id, handleDelete}) {
     
         if (isLightTheme) {
           return lightoption
-        } else {return darkoption} 
+        } else {return lightoption} 
       }
     return (
         <div>
         <Button
               onClick={() => {handleDelete(comment_id)} }
-              sx={{color: themeoptions(lightthumbs, darkthumbs)}}
+              sx={{color: themeoptions(darkthumbs)}}
               type="submit"
               varient="contained"
               endIcon={<DeleteOutlineIcon />}

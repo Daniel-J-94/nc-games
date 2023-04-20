@@ -63,20 +63,22 @@ function CommentsByReviewId({isLightTheme, user, id}) {
     </Stack>}
 {!loading && newCommentsById !== null && displayNoComments()}
                         {!loading && newCommentsById !== null && newCommentsById.map((comment) => {
-return (
+return (<div>
+  <br></br>
               <div className="Comments" >  
               
               <p className={themeoptions("headings", "headingsdark")}><h4>Comment by {comment.author}</h4></p>
              
                 <p className={themeoptions("reviewdisplaycomment", "reviewdisplaycommentdark")} >"{comment.body}"</p>
-
+                    <br></br>
                 <p className={themeoptions("headings", "headingsdark")}>Votes</p>
 
                 <p className={themeoptions("reviewdisplay", "reviewdisplaydark")} >{comment.votes}</p>
                 
-              <br></br>
+              
               <DeleteComment isLightTheme={isLightTheme} comment_id={comment.comment_id} handleDelete={handleDelete}/>
                 <br></br>
+                  </div>
                   </div>) })}
                 </div> ) }
   export default CommentsByReviewId;
