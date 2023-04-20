@@ -5,7 +5,7 @@ import { Skeleton, Stack } from "@mui/material";
 import { useParams } from "react-router-dom";
 import * as React from "react";
 import Button from "@mui/material/Button"
-import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import ThumbDownOffAltIcon from '@mui/icons-material/ThumbDownOffAlt';
 
 
@@ -59,44 +59,30 @@ return (
               <p className={themeoptions("headings", "headingsdark")}><h4>Comment by {comment.author}</h4></p>
              
                 <p className={themeoptions("reviewdisplaycomment", "reviewdisplaycommentdark")} >"{comment.body}"</p>
+                <p className={themeoptions("reviewdisplaycomment", "reviewdisplaycommentdark")} >"here is the coment id for dev purposes only:{comment.comment_id}"</p>
                 
               
                 <p className={themeoptions("headings", "headingsdark")}>Votes</p>
                 
            
                 <p className={themeoptions("reviewdisplay", "reviewdisplaydark")} >{comment.votes}</p>
-                <Button
-              varient="outlined"
-              onClick={() => console.log("you voted!")}
-              sx={{color: themeoptions(lightthumbs, darkthumbs)}}
-              type="submit"
-              endIcon={<ThumbUpOffAltIcon />}
-              >
-                Vote
-              </Button>
+                
               <br></br>
               <Button
-              onClick={() => console.log("you retracted your vote!")}
+              onClick={() => console.log("you deleted your comment!")}
               sx={{color: themeoptions(lightthumbs, darkthumbs)}}
               type="submit"
               varient="contained"
-              endIcon={<ThumbDownOffAltIcon />}
+              endIcon={<DeleteOutlineIcon />}
               >
-                Un-Vote
+                Delete
               </Button>
                 <br></br>
                 <br></br>
                 
                   
                   </div>) })}
-                  {/* {!loading && newCommentsById !== null && (newCommentsById.comments.length === 0) &&
-                  // return(
-                  <div><>
-                <p className={themeoptions(“headings”, “headingsdark”)}>
-                  <h4>No comments found for this review yet!</h4>
-                  </p></></div>
-                  // )
-                  } */}
+                
 
                 </div> ) }
   export default CommentsByReviewId;
