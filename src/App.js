@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import AllReviews from "./components/AllReviews";
 import LogIn from "./components/Login";
 import SingleReviewById from "./components/SingleReviewById";
+import CommentsByReviewId from "./components/CommentsByReviewId";
 
 function App() {
   const user = "daniel";
@@ -38,7 +39,14 @@ function App() {
           path="/"
           element={<AllReviews user={user} isLightTheme={isLightTheme} />}
         />
-        <Route path="/reviews/:review_id" element={<SingleReviewById />} />
+        <Route
+          path="/reviews/:review_id"
+          element={<SingleReviewById isLightTheme={isLightTheme} />}
+        />
+        <Route
+          path="/reviews/:review_id/comments"
+          element={<CommentsByReviewId isLightTheme={isLightTheme} />}
+        />
       </Routes>
     </div>
   );

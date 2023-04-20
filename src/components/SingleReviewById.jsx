@@ -1,7 +1,7 @@
 import "../SingleReviewById.css"
 import { useEffect, useState } from "react";
 import { fetchReviewById } from "../api";
-import { Skeleton, Stack } from "@mui/material";
+import { Button, Skeleton, Stack } from "@mui/material";
 import { useParams } from "react-router-dom";
 import * as React from "react";
 import { styled } from "@mui/material/styles";
@@ -11,13 +11,15 @@ import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import Collapse from "@mui/material/Collapse";
-import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import { red } from "@mui/material/colors";
 import { Link } from "react-router-dom";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
+import CommentsByReviewId from "./CommentsByReviewId";
+import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
+import ThumbDownOffAltIcon from '@mui/icons-material/ThumbDownOffAlt';
+import Avatar from "@mui/material/Avatar";
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -25,36 +27,39 @@ const ExpandMore = styled((props) => {
     })(({ theme, expand }) => ({
     transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
     marginLeft: "auto",
+    marginRight: "auto",
     transition: theme.transitions.create("transform", {
     duration: theme.transitions.duration.shortest
     })
     }));
 
 
-function SingleReviewById({user, owner}) {
+function SingleReviewById({isLightTheme, user}) {
     const [newReviewById, setNewReviewById] = useState(null);
     const [loading, setLoading] = useState(false);
     const { review_id } = useParams();
-  
     useEffect(() => {
       setLoading(true)
       fetchReviewById(review_id).then((review) => {
         setNewReviewById(review);
         setLoading(false)
-      });
-      
-    }, []);
-
-    {
+      });},[]);{
         const [expanded, setExpanded] = React.useState(false);
         const handleExpandClick = () => {
             setExpanded(!expanded);
-          };
-    
-          
-          return (
-              
-              <div className="reviewdisplay">
+          };        
+
+          function themeoptions(lightoption, darkoption) {
+            if (isLightTheme) {
+              return lightoption
+            } else {return darkoption} 
+          }
+          const getOwnerInitials = (newReviewById !== null) ? newReviewById.owner : "";
+          const cardylightbg = "#CEA16F"
+const cardydarkbg = "#837990"
+
+          return (             
+              <div className={themeoptions("reviewdis", "reviewdisdark")}>
       {loading && 
       <Stack spacing={1}>    
       <Skeleton variant="circular" width={40} height={40} />
@@ -63,10 +68,20 @@ function SingleReviewById({user, owner}) {
     </Stack>}
             {!loading && newReviewById !== null &&
             <div> <>
-            <Card className="RevCard" style={{backgroundColor: "#CEA16F"}} sx={{ maxWidth: 345 }} key={newReviewById.title}>
+            <Card className="RevCard"  sx={{ maxWidth: 345, backgroundColor: themeoptions(cardylightbg, cardydarkbg)  }} key={newReviewById.title}>
+              
             <CardHeader
+            avatar={
+              <Avatar sx={{ bgcolor: "#FAF8FA", color: "#24222C" }} aria-label="review">
+                {getOwnerInitials[0]}
+              </Avatar>
+            }
               title={newReviewById.title}
             />
+            <Typography variant="body1">
+               By: {newReviewById.owner}
+              </Typography>
+              <br></br>
             <CardMedia
               component="img"
               height="194"
@@ -77,9 +92,33 @@ function SingleReviewById({user, owner}) {
                 <Typography paragraph>
                 <Link to={`/`}>Back to all reviews</Link>
                 </Typography>
-              <Typography variant="body2">
+              <Typography variant="body1">
                {newReviewById.review_body}
               </Typography>
+              <br></br>
+              <Typography variant="body2">
+               Votes: {newReviewById.votes}
+              </Typography>
+              
+              <Button
+              varient="outlined"
+              onClick={() => console.log("you voted!")}
+              sx={{color: "#24222C"}}
+              type="submit"
+              endIcon={<ThumbUpOffAltIcon />}
+              >
+                Vote
+              </Button>
+              <br></br>
+              <Button
+              onClick={() => console.log("you retracted your vote!")}
+              sx={{color: "#24222C"}}
+              type="submit"
+              varient="contained"
+              endIcon={<ThumbDownOffAltIcon />}
+              >
+                Un-Vote
+              </Button>
             </CardContent>
             <CardActions disableSpacing>
               <ExpandMore
@@ -88,17 +127,15 @@ function SingleReviewById({user, owner}) {
                 aria-expanded={expanded}
                 aria-label="show more"
               >
+                 <Typography variant="body2">
+               comments:
+              </Typography>
                 <ExpandMoreIcon />
               </ExpandMore>
             </CardActions>
             <Collapse in={expanded} timeout="auto" unmountOnExit>
-              <CardContent>
-                <Typography paragraph>
-                  this is where the comments section will be
-                </Typography>
-                <Typography>
-                  user will be able to post and delete comments from here
-                </Typography>
+              <CardContent>              
+                <CommentsByReviewId isLightTheme={isLightTheme}/>     
               </CardContent>
             </Collapse>
           </Card></>

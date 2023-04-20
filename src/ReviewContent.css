@@ -1,4 +1,9 @@
 .singlecard {
+
     margin: 20px;
-    min-width: fit-content;
+    min-width: 30px;
+}
+
+.cardy {
+    background-color: red;
 }

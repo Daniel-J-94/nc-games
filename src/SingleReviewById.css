@@ -1,18 +1,22 @@
-.reviewdisplay {
+.reviewdis {
     display: flex;
     flex-flow: row wrap;
     flex-direction: row;
-    /* align-items: flex-end; */
-    /* padding: auto;
-    margin: auto; */
     justify-content: space-around;
     align-items: center;
-   /* min-width: 1000px; */
-    /* align-content: baseline; */
-    background-color: #CEA16F;
+    background-color: #837990;
+}
+
+.reviewdisdark {
+    display: flex;
+    flex-flow: row wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #24222C;
 }
 
 .RevCard {
-    min-width:min-content;
+    min-width:fit-content;
     /* display: flex; */
 }

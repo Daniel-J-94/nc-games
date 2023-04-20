@@ -1,0 +1,66 @@
+.reviewdisplay{
+    background-color: #837990;
+    color: #24222C;
+    border-radius: 25px;
+    border: 1.5px solid #24222C;
+    border-left: 0px solid #CEA16F;
+    border-right: 0px solid #CEA16F;
+    padding: 5px;
+}
+
+.reviewdisplaydark{
+    background-color: #24222C;
+    color: #FAF8FA;
+    border-radius: 25px;
+    border: 1.5px solid #CEA16F;
+    border-left: 0px solid #CEA16F;
+    border-right: 0px solid #CEA16F;
+    padding: 5px;
+}
+
+.reviewdisplaycomment{
+    background-color: #837990;
+    color: #24222C;
+    border-radius: 25px;
+    border: 1.5px solid #24222C;
+    border-left: 0px solid #CEA16F;
+    border-right: 0px solid #CEA16F;
+    padding: 10px;
+}
+
+.reviewdisplaycommentdark{
+    background-color: #24222C;
+    color: #FAF8FA;
+    border-radius: 25px;
+    border: 1.5px solid #CEA16F;
+    border-left: 0px solid #CEA16F;
+    border-right: 0px solid #CEA16F;
+    padding: 10px;
+}
+
+
+
+.Comments{
+    min-width: fit-content;
+    border-radius: 30px;
+    border: 1.5px solid #FAF8FA;
+    margin: 30px;
+    
+}
+
+
+.headings {
+border-radius: 0px;
+background-color: #CEA16F;;
+color: #24222C;
+border: none;
+}
+.headingsdark {
+    border-radius: 0px;
+    color: #24222C;
+    background-color: #CEA16F;
+    
+    
+    }
+
+

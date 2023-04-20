@@ -13,6 +13,8 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import { red } from "@mui/material/colors";
 import { Link } from "react-router-dom";
+import Button from "@mui/material/Button"
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 
 
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -28,51 +30,49 @@ transition: theme.transitions.create("transform", {
 duration: theme.transitions.duration.shortest
 })
 }));
-function ReviewContent({
-  review_id,
-  title,
-  review_img_url,
-  category,
-  created_at,
-  votes,
-  designer,
-  owner
-}) {
+function ReviewContent({isLightTheme, review}) {
     const [expanded, setExpanded] = React.useState(false);
     const handleExpandClick = () => {
         setExpanded(!expanded);
       };
 
-const getOwnerInitials = owner[0]
+const getOwnerInitials = review.owner[0]
 console.log(getOwnerInitials)
 
+
+function themeoptions(lightoption, darkoption) {
+  console.log("themehere", isLightTheme)
+  if (isLightTheme) {
+    return lightoption
+  } else {return darkoption} 
+}
+const cardylightbg = "#CEA16F"
+const cardydarkbg = "#837990"
+const dateOfReview = new Date(review.created_at).toDateString()
 
   return (
     <div className="singlecard" xs={3}>
     {/* <> */}
-    <Card style={{backgroundColor: "#CEA16F"}} sx={{ maxWidth: 345 }} key={title}>
+    <Card  sx={{ minWidth: 330, maxWidth: 330, backgroundColor: themeoptions(cardylightbg, cardydarkbg) }} key={review.title}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: "#FAF8FA", color: "#24222C" }} aria-label="review">
             {getOwnerInitials}
           </Avatar>
         }
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
-        title={title}
+        
+        title={review.title}
       />
       <CardMedia
         component="img"
         height="194"
-        image={review_img_url}
+        image={review.review_img_url}
         alt="revimg"
       />
       <CardContent>
           <Typography paragraph>
-          <Link to={`/reviews/${review_id}`}>read review!</Link>
+          <Link to={`/reviews/${review.review_id}`}>
+            <h3>read review!</h3></Link>
           </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -82,19 +82,25 @@ console.log(getOwnerInitials)
           aria-expanded={expanded}
           aria-label="show more"
         >
+          <Typography>
+            More Info:
+          </Typography>
           <ExpandMoreIcon />
         </ExpandMore>
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
         <Typography variant="body2" color="text.secondary">
-         Reviewed: {created_at}
+        <CalendarMonthIcon /> 
+        <br></br>
+        {dateOfReview}
         </Typography>
+        <br></br>
           <Typography paragraph>
-            Game Designer: {designer}
+            Game Designer: {review.designer}
           </Typography>
           <Typography>
-            Game Category: {category}
+            Game Category: {review.category}
           </Typography>
         </CardContent>
       </Collapse>

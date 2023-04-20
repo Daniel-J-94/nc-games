@@ -19,7 +19,10 @@ const darklamp = "https://static.wixstatic.com/media/b10a22_8ad621c616014b01a14b
 
   return <section className={themeoptions("Header", "HeaderDark")}>
         <div>
-        <img src={themeoptions(lightlogo, darklogo)} />
+        <a href="/"><img src={themeoptions(lightlogo, darklogo)} alt="logo" /></a>
+            
+        
+        {/* <img src={themeoptions(lightlogo, darklogo)} /> */}
         </div>
         <div className="headermaterials">
         <button onClick={handleThemeClick} type="button" className="lamp">
