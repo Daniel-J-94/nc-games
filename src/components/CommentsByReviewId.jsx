@@ -49,7 +49,7 @@ return (
               
               <p className={themeoptions("headings", "headingsdark")}><h4>Comment by {comment.author}</h4></p>
              
-                <p className={themeoptions("reviewdisplay", "reviewdisplaydark")} >"{comment.body}"</p>
+                <p className={themeoptions("reviewdisplaycomment", "reviewdisplaycommentdark")} >"{comment.body}"</p>
                 
               
                 <p className={themeoptions("headings", "headingsdark")}>Votes</p>
