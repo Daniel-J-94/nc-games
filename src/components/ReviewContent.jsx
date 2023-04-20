@@ -14,6 +14,7 @@ import Typography from "@mui/material/Typography";
 import { red } from "@mui/material/colors";
 import { Link } from "react-router-dom";
 import Button from "@mui/material/Button"
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 
 
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -90,7 +91,9 @@ const dateOfReview = new Date(review.created_at).toDateString()
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
         <Typography variant="body2" color="text.secondary">
-         Reviewed: {dateOfReview}
+        <CalendarMonthIcon /> 
+        <br></br>
+        {dateOfReview}
         </Typography>
         <br></br>
           <Typography paragraph>
