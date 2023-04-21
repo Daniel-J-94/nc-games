@@ -64,7 +64,5 @@ export const DeleteCommentOnReview = (comment_id) => {
     .delete(
       `https://back-end-portfolio-project-dj.onrender.com/api/comments/${comment_id}`
     )
-    .then((response) => {
-      return response.data;
-    });
+    .then((response) => {});
 };

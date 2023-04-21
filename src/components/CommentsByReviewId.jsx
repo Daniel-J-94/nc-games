@@ -12,6 +12,7 @@ import { toast } from "react-toastify"
 import { DeleteCommentOnReview } from '../api';
 
 function CommentsByReviewId({isLightTheme, user, id}) {
+  console.log("userincommentsbyrevid", user)
   const [newCommentsById, setNewCommentsById] = useState(null);
   const [loading, setLoading] = useState(false);
   const { review_id } = useParams();
@@ -42,7 +43,7 @@ function CommentsByReviewId({isLightTheme, user, id}) {
       setNewCommentsById(sortedComments);
       setLoading(false)
     });
-    }, [deletedComment]); 
+    }, []); 
 
     function displayNoComments() {if (newCommentsById.length === 0){
       return (<div>
@@ -76,7 +77,7 @@ return (<div>
                 <p className={themeoptions("reviewdisplay", "reviewdisplaydark")} >{comment.votes}</p>
                 
               
-              <DeleteComment isLightTheme={isLightTheme} comment_id={comment.comment_id} handleDelete={handleDelete}/>
+              <DeleteComment author={comment.author} user={user} isLightTheme={isLightTheme} comment_id={comment.comment_id} handleDelete={handleDelete}/>
                 <br></br>
                   </div>
                   </div>) })}
