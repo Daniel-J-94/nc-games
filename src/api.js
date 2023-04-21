@@ -7,6 +7,14 @@ export const fetchAllReviews = () => {
       return response.data.reviews;
     });
 };
+export const fetchAllCategories = () => {
+  return axios
+    .get("https://back-end-portfolio-project-dj.onrender.com/api/categories")
+    .then((response) => {
+      console.log("apicatres", response.data);
+      return response.data;
+    });
+};
 
 export const fetchReviewById = (review_id) => {
   return axios
@@ -52,7 +60,6 @@ export const PostCommentOnReview = (id, username, newCommentData) => {
 };
 
 export const DeleteCommentOnReview = (comment_id) => {
-  console.log("bang!", comment_id);
   return axios
     .delete(
       `https://back-end-portfolio-project-dj.onrender.com/api/comments/${comment_id}`

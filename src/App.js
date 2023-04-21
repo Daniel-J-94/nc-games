@@ -42,6 +42,10 @@ function App() {
           element={<AllReviews user={user} isLightTheme={isLightTheme} />}
         />
         <Route
+          path="/:category"
+          element={<AllReviews user={user} isLightTheme={isLightTheme} />}
+        />
+        <Route
           path="/reviews/:review_id"
           element={<SingleReviewById isLightTheme={isLightTheme} user={user} />}
         />

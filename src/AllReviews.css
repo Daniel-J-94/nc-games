@@ -25,3 +25,19 @@
     /* align-content: baseline; */
     background-color: #24222C;
 }
+
+.categorySelector {
+    background-color: #CEA16F ;
+    
+}
+.categorySelectordark {
+    background-color: #837990 ;
+    
+}
+
+.Backs {
+    display: flex;
+    flex-direction: column;
+    background-color: #24222C;
+}
+
