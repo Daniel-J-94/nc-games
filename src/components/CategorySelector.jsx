@@ -21,7 +21,7 @@ const CategorySelector = ({newCatArray}) => {
   const handleChange = (event) => {
     setNewCategory(event.target.value);
 setNewRef(newCategory)
-console.log("newCatinhandler", newCategory)
+
     
   };
 
@@ -33,14 +33,14 @@ console.log("newCatinhandler", newCategory)
 <div>
         <>
          <FormControl sx={{ m: 1, minWidth: 120 }}>
-            <InputLabel>Categories</InputLabel>
+            <InputLabel>Category</InputLabel>
             <Select
             
             label="Select a category"
             value={newCategory}
             onChange={handleChange}>
                 {newCatArray.map((cat) => {
-        console.log("catsBANG",cat)
+        
         return(
         <MenuItem href={`/${cat.slug}`} key={cat.slug} value={cat.slug}><Link href={`/${cat.slug}`} >{cat.slug}</Link></MenuItem>)
     })}
