@@ -37,11 +37,9 @@ function ReviewContent({isLightTheme, review}) {
       };
 
 const getOwnerInitials = review.owner[0]
-console.log(getOwnerInitials)
 
 
 function themeoptions(lightoption, darkoption) {
-  console.log("themehere", isLightTheme)
   if (isLightTheme) {
     return lightoption
   } else {return darkoption} 

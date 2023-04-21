@@ -3,21 +3,38 @@ import { useEffect, useState } from "react";
 import { fetchAllReviews } from "../api";
 import ReviewContent from "./ReviewContent";
 import { Skeleton, Stack } from "@mui/material";
+import { useParams } from "react-router-dom";
+import CategorySelector from "./CategorySelector";
+import { fetchAllCategories } from "../api";
+
+
 
 
 function AllReviews({user, isLightTheme}) {
-    const [newReviews, setNewReviews] = useState([]);
-    const [loading, setLoading] = useState(false);
-    console.log("user:", user)
-  
+  const [newReviews, setNewReviews] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const { category } = useParams()
+  const [newCatArray, setNewCatArray] = useState([])
+
+  function filterReviewsByCategory(reviewsToFilter) {
+    if (category && category !== null && category.length > 0) {
+      return reviewsToFilter.filter(it => it.category === category)
+    } else {
+      return reviewsToFilter
+    }
+  }
+
     useEffect(() => {
       setLoading(true)
       fetchAllReviews().then((reviews) => {
-        setNewReviews(reviews);
+        const filteredReviews = filterReviewsByCategory(reviews)
+        setNewReviews(filteredReviews);
         setLoading(false)
       });
       
     }, []);
+
+  
 
     function themeoptions(lightoption, darkoption) {
       console.log("theme", isLightTheme)
@@ -25,9 +42,18 @@ function AllReviews({user, isLightTheme}) {
         return lightoption
       } else {return darkoption} 
     }
+useEffect(() => {
+  fetchAllCategories().then((catArray) => {
+    setNewCatArray(catArray)
+  })
+}, [])
 
     return (
-      
+      <div className="Backs">
+      <div className={themeoptions("categorySelector", "categorySelectordark")}>
+        {newCatArray.length > 0 && 
+        <CategorySelector newCatArray={newCatArray}/>}
+      </div>
       
       <div className={themeoptions("cards", "cardsDark")}>
       {loading && 
@@ -40,6 +66,7 @@ function AllReviews({user, isLightTheme}) {
             {!loading && newReviews.map((review) => {
               return <ReviewContent key={review.item_id} isLightTheme={isLightTheme} review={review} />;
             })}
+      </div>
       </div>
       
     );

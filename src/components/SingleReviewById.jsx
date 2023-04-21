@@ -122,7 +122,7 @@ const cardydarkbg = "#837990"
             </CardActions>
             <Collapse in={expanded} timeout="auto" unmountOnExit>
               <CardContent>              
-                <CommentsByReviewId isLightTheme={isLightTheme}/>     
+                <CommentsByReviewId user={user} isLightTheme={isLightTheme}/>     
               </CardContent>
             </Collapse>
           </Card></>

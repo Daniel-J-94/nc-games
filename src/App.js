@@ -34,10 +34,15 @@ function App() {
           isLightTheme={isLightTheme}
         />
       </div>
+
       <Routes>
         <Route path="/login" element={<LogIn />} />
         <Route
           path="/"
+          element={<AllReviews user={user} isLightTheme={isLightTheme} />}
+        />
+        <Route
+          path="/:category"
           element={<AllReviews user={user} isLightTheme={isLightTheme} />}
         />
         <Route

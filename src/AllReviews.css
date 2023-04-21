@@ -9,7 +9,7 @@
     align-items: center;
     max-width: max-content;
     /* align-content: baseline; */
-    background-color: #837990;
+    background-color: #24222C;
 }
 
 .cardsDark {
@@ -25,3 +25,19 @@
     /* align-content: baseline; */
     background-color: #24222C;
 }
+
+.categorySelector {
+    background-color: #CEA16F ;
+    
+}
+.categorySelectordark {
+    background-color: #837990 ;
+    
+}
+
+.Backs {
+    display: flex;
+    flex-direction: column;
+    background-color: #24222C;
+}
+
